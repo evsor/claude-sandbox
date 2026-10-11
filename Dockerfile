@@ -27,6 +27,11 @@ RUN mkdir -p /workspace /home/node /home/claude-plugin-cache \
         /home/node \
         /home/claude-plugin-cache
 
+# Claude Code settings installed as managed settings
+# Root-owned and read-only
+ARG CLAUDE_SETTINGS=.claude/settings.json
+COPY --chown=root:root --chmod=644 ${CLAUDE_SETTINGS} /etc/claude-code/managed-settings.json
+
 # Runtime
 ENV HOME=/home/node
 ENV SHELL=/bin/bash

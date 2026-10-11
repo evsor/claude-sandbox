@@ -1,0 +1,88 @@
+{
+  "env": {
+    "DISABLE_TELEMETRY": "1",
+    "DISABLE_ERROR_REPORTING": "1"
+  },
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:*)",
+      "WebSearch",
+
+      "Bash(npm test *)",
+      "Bash(npm run build *)",
+      "Bash(npm run lint *)",
+      "Bash(pytest *)",
+      "Bash(go test *)",
+      "Bash(make *)",
+
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git branch *)",
+
+      "mcp__grafana"
+    ],
+
+    "ask": [
+      "Bash(git add .)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(npm install *)",
+      "Bash(pip install *)",
+      "Bash(open *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(aws *)",
+      "Bash(gcloud *)"
+    ],
+
+    "deny": [
+      "Bash(git push -f *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(git checkout .)",
+      "Bash(git restore *)",
+      "Bash(git clean -f *)",
+      "Bash(git add -A)",
+
+      "Bash(rm -rf *)",
+      "Bash(rm -r *)",
+
+      "Bash(chmod 777 *)",
+      "Bash(chmod -R *)",
+      "Bash(chown -R *)",
+      "Bash(killall *)",
+      "Bash(pkill *)",
+      "Bash(kill -9 *)",
+
+      "Bash(sudo *)",
+      "Bash(su *)",
+
+      "Bash(sh *)",
+      "Bash(bash *)",
+      "Bash(zsh *)",
+
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(rsync *)",
+
+      "Bash(npm publish *)",
+      "Bash(yarn publish *)",
+      "Bash(pnpm publish *)",
+      "Bash(*deploy*)",
+
+      "Bash(terraform apply *)",
+      "Bash(terraform destroy *)",
+      "Bash(kubectl apply *)",
+      "Bash(kubectl delete *)",
+      "Bash(helm install *)",
+      "Bash(helm upgrade *)",
+      "Bash(docker push *)",
+
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)"
+    ]
+  }
+}
