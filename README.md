@@ -2,6 +2,19 @@
 
 Run Claude Code in a sandbox microVM
 
+## Before first use: set your git identity
+
+The image ships without a git identity, and git refuses to commit until one is set (`user.useConfigOnly`). Add yours to [image/etc/gitconfig](image/etc/gitconfig), then rebuild:
+
+```ini
+[user]
+	useConfigOnly = true
+	name = Your Name
+	email = <id>+<login>@users.noreply.github.com
+```
+
+Your noreply address is under GitHub → Settings → Emails.
+
 ## Build image
 
 ```bash
