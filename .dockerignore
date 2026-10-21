@@ -1,0 +1,10 @@
+.git
+docs
+tests
+**/*.env
+**/.env
+**/.env.*
+**/*secret*
+**/*.pem
+**/*.key
+**/.credentials.json
