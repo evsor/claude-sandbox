@@ -1,4 +1,3 @@
-# Release tarballs, verified by checksum and unpacked by BuildKit. Add a tool: one ADD here, one COPY below.
 FROM scratch AS tools
 ADD --chown=0:0 --checksum=sha256:77b9e297e94c50336823d0f84de7ef1be60cba704601fa0d98f129f47a94987b --unpack=true \
     https://github.com/cli/cli/releases/download/v2.102.1/gh_2.102.1_linux_amd64.tar.gz /
@@ -28,13 +27,12 @@ ARG CLAUDE_CODE_VERSION=2.1.304
 RUN npm install -g "@anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}" \
     && npm cache clean --force
 
-# image/ mirrors the guest paths. Not `COPY image/ /`: it gives /etc the checkout's dir mode.
-# No --chmod (it caused F14); COPY keeps the checkout's umask-dependent modes, so normalize them.
+# Copy configuration files to /etc and set permissions on them
 COPY image/etc/claude-code/ /etc/claude-code/
 COPY image/etc/gitconfig image/etc/gitignore /etc/
 RUN chmod -R a+rX,go-w /etc/claude-code /etc/gitconfig /etc/gitignore
 
-# Volume mount points.
+# Volume mount points
 RUN mkdir -p /workspace /home/node/claude-state \
     && chown node:node /workspace /home/node/claude-state
 
