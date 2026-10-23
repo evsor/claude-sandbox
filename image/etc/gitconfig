@@ -1,0 +1,9 @@
+[init]
+	defaultBranch = main
+[core]
+	excludesFile = /etc/gitignore
+[pull]
+	ff = only
+[user]
+	# No identity in the image yet, so git refuses to commit until one is set.
+	useConfigOnly = true
