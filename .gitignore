@@ -1,5 +1,4 @@
 docs
-tests
 **/*.env
 **/.env
 **/.env.*
